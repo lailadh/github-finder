@@ -3,8 +3,98 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ithub finder</title>
+    <title>Github Finder</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <img src="image/logo remove.png" alt="logo" />
+        <h1>GitHub Finder</h1>
+      </div>
+      <div class="menu">
+        <button class="btn-icon" id="book-btn">
+          <img src="image/menu.png" alt="menu" />
+          <span>BookMarks</span>
+          <span class="counter" id="book-count">0</span>
+        </button>
+      </div>
+    </header>
+
+    <!--..........................................................-->
+    <section class="hero-content">
+      <!--div1-->
+      <div id="welcome">
+        <h2>Welcome to GitHub Finder</h2>
+        <p>Search for any GitHub developer and save your favorites</p>
+      </div>
+      <!--div2 search-->
+      <div id="search">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Enter GitHub username..."
+        />
+
+        <button id="search-btn">Search</button>
+      </div>
+      <!--div3 loading -->
+      <div class="hidden" id="loading">
+        <div class="spinner"></div>
+      </div>
+      <!--div4 error-->
+      <div class="hidden" id="error">
+        <p id="error-msg">User not found</p>
+      </div>
+      <!--div5 resultat-->
+      <!--div5 resultat-->
+<div class="hidden" id="resultat">
+  <div class="card" id="user-card">
+    
+    <!-- image+ ...-->
+    <div class="card-top">
+      <img id="user-avatar" src="" alt="avatar" />
+      <div class="user-info">
+        <h2 id="user-name">Full Name</h2>
+        <p id="user-login">@username</p>
+        <p id="user-bio">Bio here...</p>
+        <a id="user-link" href="" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+
+    <!-- -->
+    <div class="card-stats">
+      <div class="badge">
+        <span>Followers</span>
+        <strong id="user-followers">0</strong>
+      </div>
+      <div class="badge">
+        <span>Following</span>
+        <strong id="user-following">0</strong>
+      </div>
+      <div class="badge">
+        <span>Repos</span>
+        <strong id="user-repos">0</strong>
+      </div>
+    </div>
+
+    <!-- زر Bookmark -->
+    <button class="btn-bookmark" id="bookmark-btn">
+      ⭐ Add to Bookmarks
+    </button>
+
+  </div>
+</div>
+        <!--غنعمروه بjs-->
+      </div>
+      <!--div6 Bookmarks-->
+      <div class="hidden" id="bookmarks">
+        <img src="image/menu.png" alt="menu" />
+        <h2>My Bookmarks</h2>
+        <div id="bookmarks-list"></div>
+        <!--غنعمروه بjs-->
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
 </html>

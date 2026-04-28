@@ -1,0 +1,266 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --bg-primary: #0d1117;
+  --bg-card: rgb(135, 31, 135);
+  --text-primary: #e6edf3;
+  --accent: violet;
+  --border: rgb(105, 64, 105);
+}
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: caprasimo;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background-color: #161b22;
+}
+.btn-icon {
+  color: black;
+  background-color: white;
+  font-family: caprasimo;
+  /*font-weight: 700px;*/
+  font-size: 15px;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 20px;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+.btn-icon img {
+  width: 25px;
+  /*padding: 8px 30px;*/
+}
+
+.menu :hover {
+  background-color: violet;
+  color: black;
+  transform: scale(1.05);
+}
+.logo img {
+  width: 100px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo h1 {
+  color: var(--text-primary);
+  font-size: 22px;
+}
+
+.counter {
+  border-radius: 50%;
+  background-color: var(--accent);
+  color: black;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+/*....................................................*/
+/*hero-content */
+/*layout*/
+.hero-content {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.hidden {
+  display: flex; /*مخصوش يبان*/
+}
+#search {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+#search-input {
+  flex: 1;
+  padding: 12px 16px;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+}
+
+#search-input:focus {
+  border-color: var(--accent);
+}
+
+#search-btn {
+  padding: 12px 24px;
+  background-color: var(--accent);
+  color: black;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#search-btn:hover {
+  opacity: 0.85;
+  transform: scale(1.03);
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 60px auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== ERROR ===== */
+#error {
+  text-align: center;
+  color: #f85149;
+  font-size: 18px;
+  margin-top: 40px;
+}
+
+/* ===== WELCOME ===== */
+#welcome {
+  text-align: center;
+  margin-top: 60px;
+  color: var(--text-primary);
+}
+
+#welcome p {
+  color: var(--border);
+  margin-top: 10px;
+}
+.hidden img {
+  width: 35px;
+
+  display: flex;
+}
+/*card*/
+
+/* ===== CARD ===== */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.card-top {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+#user-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#user-name {
+  color: var(--text-primary);
+  font-size: 20px;
+}
+
+#user-login {
+  color: var(--accent);
+  font-size: 14px;
+}
+
+#user-bio {
+  color: var(--text-primary);
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+#user-link {
+  color: var(--accent);
+  font-size: 14px;
+  text-decoration: none;
+}
+
+#user-link:hover {
+  text-decoration: underline;
+}
+
+/* ===== STATS ===== */
+.card-stats {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.badge {
+  flex: 1;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.badge span {
+  font-size: 12px;
+  color: var(--text-primary);
+  opacity: 0.7;
+}
+
+.badge strong {
+  font-size: 18px;
+  color: var(--accent);
+}
+
+/* ===== BOOKMARK BUTTON ===== */
+.btn-bookmark {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--accent);
+  color: black;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-bookmark:hover {
+  opacity: 0.85;
+  transform: scale(1.02);
+}
