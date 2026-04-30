@@ -219,7 +219,7 @@ loadBookmarks();
 
 async function fetchUserRepos(username) {
   try {
-    console.log(env.Token);
+    //console.log(env.Token);
     const response = await fetch(
       "https://api.github.com/users/" +
         username +
@@ -233,12 +233,12 @@ async function fetchUserRepos(username) {
 
     const repos = await response.json();
     displayRepositories(repos);
-    console.log("============");
-    console.log(env.Token);
+    //console.log("============");
+    //console.log(env.Token);
   } catch (error) {
-    console.log("============");
-    console.log(env.Token);
-    console.log("Repos error:", error);
+    //console.log("============");
+    //console.log(env.Token);
+    //console.log("Repos error:", error);
   }
 }
 
