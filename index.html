@@ -21,13 +21,13 @@
       </div>
     </header>
 
-    <!--..........................................................-->
     <section class="hero-content">
       <!--div1-->
       <div id="welcome">
         <h2>Welcome to GitHub Finder</h2>
         <p>Search for any GitHub developer and save your favorites</p>
       </div>
+
       <!--div2 search-->
       <div id="search">
         <input
@@ -35,23 +35,23 @@
           id="search-input"
           placeholder="Enter GitHub username..."
         />
-
         <button id="search-btn">Search</button>
       </div>
+
       <!--div3 loading -->
       <div class="hidden" id="loading">
         <div class="spinner"></div>
       </div>
+
       <!--div4 error-->
       <div class="hidden" id="error">
         <p id="error-msg">User not found</p>
       </div>
+
       <!--div5 resultat-->
-      <!--div5 resultat-->
-      <div id="resultat">
-        <!--class="hidden"-->
+      <div class="hidden" id="resultat">
         <div class="card" id="user-card">
-          <!-- image+ ...-->
+          <!-- image + info -->
           <div class="card-top">
             <img id="user-avatar" src="" alt="avatar" />
             <div class="user-info">
@@ -62,7 +62,7 @@
             </div>
           </div>
 
-          <!-- -->
+          <!-- stats -->
           <div class="card-stats">
             <div class="badge">
               <span>Followers</span>
@@ -78,24 +78,27 @@
             </div>
           </div>
 
+          <!-- ← هنا زدت repos-section (بعد card-stats وقبل bookmark-btn) -->
+          <div class="repos-section">
+            <h3>Top Repositories</h3>
+            <div id="repos-list"></div>
+          </div>
+
           <!-- زر Bookmark -->
           <button class="btn-bookmark" id="bookmark-btn">
             ⭐ Add to Bookmarks
           </button>
         </div>
       </div>
-      <!--غنعمروه بjs-->
 
       <!--div6 Bookmarks-->
       <div class="hidden" id="bookmarks">
-        <!-- 
-        <img src="image/menu.png" alt="menu" /> 
-         -->
         <h2>My Bookmarks</h2>
         <div id="bookmarks-list"></div>
-        <!--غنعمروه بjs-->
       </div>
     </section>
+
+    <script src="config.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

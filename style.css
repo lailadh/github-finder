@@ -1,8 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 :root {
   --bg-primary: #0d1117;
   --bg-card: rgb(135, 31, 135);
@@ -10,11 +13,17 @@
   --accent: violet;
   --border: rgb(105, 64, 105);
 }
+
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: caprasimo;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
+
 header {
   display: flex;
   justify-content: space-between;
@@ -22,11 +31,11 @@ header {
   padding: 16px 32px;
   background-color: #161b22;
 }
+
 .btn-icon {
   color: black;
   background-color: white;
-  font-family: caprasimo;
-  /*font-weight: 700px;*/
+  font-family: "Inter", system-ui, sans-serif;
   font-size: 15px;
   padding: 12px 20px;
   cursor: pointer;
@@ -37,9 +46,9 @@ header {
   gap: 12px;
   transition: all 0.3s ease;
 }
+
 .btn-icon img {
   width: 25px;
-  /*padding: 8px 30px;*/
 }
 
 .menu :hover {
@@ -47,6 +56,7 @@ header {
   color: black;
   transform: scale(1.05);
 }
+
 .logo img {
   width: 100px;
 }
@@ -74,22 +84,24 @@ header {
   font-size: 14px;
   font-weight: 700;
 }
-/*....................................................*/
-/*hero-content */
-/*layout*/
+
+/* hero-content */
 .hero-content {
   max-width: 700px;
   margin: 40px auto;
   padding: 0 20px;
 }
+
 .hidden {
-  display: none; /*مخصوش يبان*/
+  display: none;
 }
+
 #search {
   display: flex;
   gap: 12px;
   margin-bottom: 24px;
 }
+
 #search-input {
   flex: 1;
   padding: 12px 16px;
@@ -156,12 +168,11 @@ header {
   color: var(--border);
   margin-top: 10px;
 }
+
 .hidden img {
   width: 35px;
-
   display: flex;
 }
-/*card*/
 
 /* ===== CARD ===== */
 .card {
@@ -247,6 +258,60 @@ header {
   color: var(--accent);
 }
 
+/* ===== REPOS SECTION - جديد ===== */
+.repos-section {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.repos-section h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+#repos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.repo-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.repo-card h3 {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.repo-card h3 a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.repo-card h3 a:hover {
+  text-decoration: underline;
+}
+
+.repo-card p {
+  font-size: 13px;
+  color: var(--text-primary);
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.repo-stats {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--text-primary);
+  opacity: 0.7;
+}
+
 /* ===== BOOKMARK BUTTON ===== */
 .btn-bookmark {
   width: 100%;
@@ -263,4 +328,52 @@ header {
 .btn-bookmark:hover {
   opacity: 0.85;
   transform: scale(1.02);
+}
+
+/* ===== BOOKMARKS LIST ===== */
+.bookmark-item img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.bookmark-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.bookmark-item span {
+  flex: 1;
+  color: var(--text-primary);
+  font-size: 15px;
+}
+
+.bookmark-item button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.bookmark-item button:first-of-type {
+  background-color: var(--accent);
+  color: black;
+}
+
+.bookmark-item button:last-of-type {
+  background-color: transparent;
+  font-size: 16px;
+}
+
+#bookmarks h2 {
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  font-size: 20px;
 }

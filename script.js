@@ -84,6 +84,7 @@ function renderUser(user) {
   document.getElementById("user-link").href = user.html_url;
   /*wri section resultat */
   showSection("resultat");
+  fetchUserRepos(user.login);
 }
 
 /*test */
@@ -101,23 +102,32 @@ renderUser({
 });*/
 
 async function searchUser(username) {
-  // ورّي spinner
   showSection("loading");
 
   try {
-    const response = await fetch("https://api.github.com/users/" + username);
+    /*dima t3ayti lih b repot wla token */
+    const response = await fetch("https://api.github.com/users/" + username, {
+      headers: {
+        Authorization: `token ${env.Token}`,
+      },
+    });
 
     if (response.status === 404) {
       errorMsg.textContent = "❌ Utilisateur non trouvé !";
       showSection("error");
       return;
+    } else if (response.status === 403) {
+      errorMsg.textContent = "⚠️ Rate limit reached. Try later.";
+      showSection("error");
+      return;
+    } else if (!response.ok) {
+      errorMsg.textContent = "❌ Unexpected error occurred";
+      showSection("error");
+      return;
     }
 
-    /*kanhawlo ljawab l objet bax n9adro nsta3mloh f renderUser wihot lma"lomat f html*/
     const user = await response.json();
     renderUser(user);
-
-    /* ila w9a" errer  yweri catch*/
   } catch (error) {
     errorMsg.textContent = "⚠️ Erreur réseau. Vérifiez votre connexion.";
     showSection("error");
@@ -206,3 +216,82 @@ function loadBookmarks() {
 }
 
 loadBookmarks();
+
+async function fetchUserRepos(username) {
+  try {
+    console.log(env.Token);
+    const response = await fetch(
+      "https://api.github.com/users/" +
+        username +
+        "/repos?per_page=5&sort=stars",
+      {
+        headers: {
+          Authorization: `token ${env.Token}`,
+        },
+      },
+    );
+
+    const repos = await response.json();
+    displayRepositories(repos);
+    console.log("============");
+    console.log(env.Token);
+  } catch (error) {
+    console.log("============");
+    console.log(env.Token);
+    console.log("Repos error:", error);
+  }
+}
+
+// async function fetchUserRepos(username) {
+//   try {
+//     const response = await fetch(
+//       "https://api.github.com/users/" +
+//         username +
+//         "/repos?per_page=5&sort=stars",
+//     );
+//     const repos = await response.json();
+//     displayRepositories(repos);
+//   } catch (error) {
+//     console.log("Repos error:", error);
+//   }
+// }
+
+function displayRepositories(repos) {
+  const reposList = document.getElementById("repos-list");
+  reposList.innerHTML = "";
+
+  repos.forEach((repo) => {
+    const div = document.createElement("div");
+    div.classList.add("repo-card");
+    div.innerHTML = `
+      <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+      <p>${repo.description || "No description"}</p>
+      <div class="repo-stats">
+        <span>⭐ ${repo.stargazers_count}</span>
+        <span>🍴 ${repo.forks_count}</span>
+        <span>💻 ${repo.language || "N/A"}</span>
+      </div>
+    `;
+    reposList.appendChild(div);
+  });
+}
+
+bookBtn.addEventListener("click", () => {
+  renderBookmarks();
+});
+
+document.getElementById("bookmark-btn").addEventListener("click", () => {
+  if (!state.currentUser) return;
+
+  const alreadyAdded = state.bookmarks.find(
+    (b) => b.id === state.currentUser.id,
+  );
+
+  if (alreadyAdded) {
+    removeBookmark(state.currentUser.id);
+    document.getElementById("bookmark-btn").textContent = "⭐ Add to Bookmarks";
+  } else {
+    addBookmark(state.currentUser);
+    document.getElementById("bookmark-btn").textContent = "❌ Remove Bookmark";
+  }
+});
