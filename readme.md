@@ -1,10 +1,6 @@
 # GitHub Finder
 
-A web application to search GitHub profiles, view developer statistics, and manage favorite profiles.
-
-## Description
-
-GitHub Finder allows recruiters to quickly discover GitHub developer profiles, visualize their public statistics, and save interesting profiles to favorites for later consultation.
+Application web pour rechercher des profils GitHub et gérer ses favoris.
 
 ## Features
 
@@ -15,15 +11,12 @@ GitHub Finder allows recruiters to quickly discover GitHub developer profiles, v
 - Loading spinner during API requests
 - Error handling (404, 403, network errors)
 - Responsive design (mobile-first)
-- Dark mode
 
 ## Technologies Used
 
-- HTML5 (semantic structure)
-- CSS3 (Flexbox, Grid, CSS Variables, Dark mode)
-- JavaScript Vanilla (async/await, fetch API, DOM manipulation)
-- GitHub REST API (public)
-- localStorage (persistent storage)
+- HTML5 / CSS3 / JavaScript Vanilla
+- GitHub REST API
+- localStorage
 
 ## Project Structure
 
@@ -48,8 +41,3 @@ github-finder/
 
 GET https://api.github.com/users/{username}
 GET https://api.github.com/users/{username}/repos?per_page=5&sort=stars
-
-## Author
-
-- Salma Harda
-- GitHub: @ton-username
